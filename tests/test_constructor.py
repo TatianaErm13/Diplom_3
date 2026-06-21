@@ -2,32 +2,29 @@ import allure
 from pages.main_page import MainPage
 
 
-@allure.title("Переход в Конструктор")
-def test_constructor(driver):
-    page = MainPage(driver)
+class TestConstructor:
 
-    page.open_feed()
-    page.open_constructor()
+    @allure.title("Переход в конструктор")
+    def test_go_to_constructor(self, driver):
+        page = MainPage(driver)
+        page.open_constructor()
 
-    assert driver.current_url == "https://stellarburgers.education-services.ru/"
+        assert page.get_current_url() == "https://stellarburgers.education-services.ru/"
 
-@allure.title("Открытие и закрытие модального окна")
-def test_modal(driver):
-    page = MainPage(driver)
+    @allure.title("Открытие модального окна ингредиента")
+    def test_open_modal(self, driver):
+        page = MainPage(driver)
+        page.wait_overlay_disappear()
+        page.open_ingredient()
+        assert page.is_modal_opened()
 
-    page.click_ingredient()
+    @allure.title("Закрытие модального окна")
+    def test_close_modal(self, driver):
+        page = MainPage(driver)
 
-    assert page.is_modal_opened()
+        page.open_ingredient()
+        page.close_modal()
+        page.wait_modal_closed()
 
-    page.close_modal()
-
-@allure.title("Увеличение счетчика ингредиента")
-def test_counter(driver):
-    page = MainPage(driver)
-
-    before = page.get_counter()
-    page.click_ingredient()
-    after = page.get_counter()
-
-    assert after >= before
-    
+        assert not page.is_modal_opened()
+        

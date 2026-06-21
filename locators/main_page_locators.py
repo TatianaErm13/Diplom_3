@@ -1,13 +1,15 @@
 from selenium.webdriver.common.by import By
 
 
-CONSTRUCTOR_TAB = (By.XPATH, "//p[text()='Конструктор']")
-FEED_TAB = (By.XPATH, "//p[text()='Лента Заказов']")
+class MainPageLocators:
+    CONSTRUCTOR_TAB = (By.LINK_TEXT, "Конструктор")
 
-INGREDIENT = (By.CLASS_NAME, "BurgerIngredient_ingredient__1TVf6")
-MODAL = (By.CLASS_NAME, "Modal_modal__P3_V5")
-MODAL_CLOSE = (By.CLASS_NAME, "Modal_modal__close__TnseK")
+    INGREDIENT = (By.CSS_SELECTOR, ".BurgerIngredient_ingredient__1TVf6")
 
-COUNTER = (By.CLASS_NAME, "counter_counter__num__3nue1")
+    MODAL_CONTENT = (By.CSS_SELECTOR, "[class*='Modal_modal__content']")
 
-ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
+    MODAL_CLOSE_BUTTON = (
+        By.CSS_SELECTOR,
+        "button[class*='Modal_modal__close']"
+    )
+    
