@@ -13,6 +13,5 @@ def driver(request):
     driver.get(BASE_URL)
 
     yield driver
-
     driver.quit()
     

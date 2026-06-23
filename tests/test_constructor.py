@@ -1,6 +1,6 @@
 import allure
 from pages.main_page import MainPage
-
+from constants import BASE_URL, LOGIN_URL, EMAIL, PASSWORD
 
 class TestConstructor:
 
@@ -9,7 +9,7 @@ class TestConstructor:
         page = MainPage(driver)
         page.open_constructor()
 
-        assert page.get_current_url() == "https://stellarburgers.education-services.ru/"
+        assert page.get_current_url() == BASE_URL
 
     @allure.title("Открытие модального окна ингредиента")
     def test_open_modal(self, driver):
@@ -25,6 +25,6 @@ class TestConstructor:
         page.open_ingredient()
         page.close_modal()
         page.wait_modal_closed()
-
+        
         assert not page.is_modal_opened()
         

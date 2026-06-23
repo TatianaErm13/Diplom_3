@@ -1,6 +1,0 @@
-__pycache__/
-.pytest_cache/
-allure-results/
-allure-report/
-.idea/
-.vscode/

@@ -9,8 +9,8 @@ class FeedPageLocators:
     )
 
     FEED_CONTAINER = (
-        By.CSS_SELECTOR,
-        ".OrderFeed_ordersData__1L6Iv"
+        By.XPATH,
+        "//h1[text()='Лента заказов']"
     )
     
     TOTAL_ALL_TIME = (
@@ -22,3 +22,10 @@ class FeedPageLocators:
         By.XPATH,
         "//p[text()='Выполнено за сегодня:']/following-sibling::p"
     )
+
+    IN_WORK_LIST = (
+        By.CSS_SELECTOR,
+        ".OrderFeed_orderList__cBvyi"
+    )
+
+    
